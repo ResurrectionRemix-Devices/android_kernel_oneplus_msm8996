@@ -122,7 +122,6 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	  loading your cpufreq low-level hardware driver, using the
 	  'interactive' governor for latency-sensitive workloads.
 
-
 config CPU_FREQ_DEFAULT_GOV_DARKNESS
  	bool "darkness"
  	select CPU_FREQ_GOV_DARKNESS
@@ -234,7 +233,7 @@ config CPU_FREQ_DEFAULT_GOV_HELLSACTIVE
 	bool "hellsactive"
 	select CPU_FREQ_GOV_HELLSACTIVE
 	help
-	Use the CPUfreq governor 'hellsactive' as default.		  		  
+	Use the CPUfreq governor 'hellsactive' as default.
 
 endchoice
 
@@ -360,6 +359,7 @@ config CPU_FREQ_GOV_ZZMOOVE
 
 config CPU_FREQ_GOV_CHILL
 	tristate "'chill' cpufreq governor"
+
 	depends on CPU_FREQ
 	select CPU_FREQ_GOV_COMMON
 	default y
