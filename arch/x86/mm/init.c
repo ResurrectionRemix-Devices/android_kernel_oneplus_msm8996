@@ -612,7 +612,6 @@ int devmem_is_allowed(unsigned long pagenr)
 
 		return 0;
 	}
-
 	return 1;
 }
 
