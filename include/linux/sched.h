@@ -1418,6 +1418,8 @@ struct task_struct {
 	unsigned int policy;
 	int nr_cpus_allowed;
 	cpumask_t cpus_allowed;
+    int ams_policy;
+    struct list_head affinity_node;
 
 #ifdef CONFIG_PREEMPT_RCU
 	int rcu_read_lock_nesting;
@@ -3215,7 +3217,7 @@ struct migration_notify_data {
 
 extern struct atomic_notifier_head load_alert_notifier_head;
 
-extern long sched_setaffinity(pid_t pid, const struct cpumask *new_mask);
+extern long sched_setaffinity(pid_t pid, struct cpumask *new_mask);
 extern long sched_getaffinity(pid_t pid, struct cpumask *mask);
 
 #ifdef CONFIG_CGROUP_SCHED
