@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2011-2015 The Linux Foundation. All rights reserved.
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
@@ -148,10 +148,7 @@
 #define SIR_MAC_ACTION_WME            17
 #define SIR_MAC_ACTION_FST            18
 #define SIR_MAC_ACTION_VHT            21
-#define SIR_MAC_ACTION_MAX            256
 
-#define SIR_MAC_ACTION_TX             1
-#define SIR_MAC_ACTION_RX             2
 // QoS management action codes
 
 #define SIR_MAC_QOS_ADD_TS_REQ      0
@@ -506,8 +503,6 @@
 #define SIR_MAC_NUM_TARGET_IPV6_NS_OFFLOAD_NA   16
 #define SIR_MAC_IPV6_ADDR_LEN               16
 #define SIR_IPV6_ADDR_VALID                 1
-#define SIR_IPV6_ADDR_UC_TYPE               0
-#define SIR_IPV6_ADDR_AC_TYPE               1
 #endif //WLAN_NS_OFFLOAD
 #define SIR_MAC_ARP_OFFLOAD_SIZE        1
 
@@ -642,6 +637,10 @@
 
 #define IS_WES_MODE_ENABLED(x) \
                     ((x)->roam.configParam.isWESModeEnabled)
+
+#define BA_RECIPIENT       1
+#define BA_INITIATOR       2
+#define BA_BOTH_DIRECTIONS 3
 
 /// Status Code (present in Management response frames) enum
 
@@ -802,6 +801,34 @@ typedef enum eSirMacReasonCodes
     eSIR_BEACON_MISSED                               = 65534, //We invented this to tell beacon missed case
 } tSirMacReasonCodes;
 
+
+// BA Initiator v/s Recipient
+typedef enum eBADirection
+{
+  eBA_RECIPIENT,
+  eBA_INITIATOR
+} tBADirection;
+
+// A-MPDU/BA Enable/Disable in Tx/Rx direction
+typedef enum eBAEnable
+{
+  eBA_DISABLE,
+  eBA_ENABLE
+} tBAEnable;
+
+// A-MPDU/BA Policy
+typedef enum eBAPolicy
+{
+  eBA_UNCOMPRESSED,
+  eBA_COMPRESSED
+} tBAPolicy;
+
+// A-MPDU/BA Policy
+typedef enum eBAPolicyType
+{
+  eBA_POLICY_DELAYED,
+  eBA_POLICY_IMMEDIATE
+} tBAPolicyType;
 
 /// Frame control field format (2 bytes)
 typedef  __ani_attr_pre_packed struct sSirMacFrameCtl
