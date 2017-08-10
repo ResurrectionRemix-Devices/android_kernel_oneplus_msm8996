@@ -1334,7 +1334,7 @@ static inline bool sanity_check_area_boundary(struct f2fs_sb_info *sbi,
 	u64 main_end_blkaddr = main_blkaddr +
 				(segment_count_main << log_blocks_per_seg);
 	u64 seg_end_blkaddr = segment0_blkaddr +
-				(segment_count << log_blocks_per_seg);
+                (segment_count << log_blocks_per_seg);
 
 	if (segment0_blkaddr != cp_blkaddr) {
 		f2fs_msg(sb, KERN_INFO,
